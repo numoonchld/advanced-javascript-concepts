@@ -74,6 +74,8 @@
 
 # Closures in IIFE (Immediately Invoked Function Expression)
 
+- even anonymous functions have closures!
+  
 ```javascript
 const privateCounter = (() => {
   let count = 0
@@ -85,4 +87,3 @@ privateCounter() // 1
 privateCounter() // 2
 privateCounter() // 3
 ```
-
