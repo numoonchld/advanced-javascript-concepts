@@ -77,6 +77,7 @@
 - even anonymous functions have closures!
   
 ```javascript
+// IIFE Example #1
 const privateCounter = (() => {
   let count = 0
   console.log('Initial Value: ', count)
@@ -86,4 +87,20 @@ const privateCounter = (() => {
 privateCounter() // 1
 privateCounter() // 2
 privateCounter() // 3
+
+
+// IIFE Example #2
+const credits = ((num) => {
+  let credits = num
+  console.log('initial credits value: ', credits)
+  return () => {
+    credits -= 1
+    if (credits > 0) console.log(`playing game, ${credits} credit(s) remaining!`)
+    if (credits <= 0) console.log(`not enough credits!`)
+  }
+})(3)
+
+credits()
+credits()
+credits()
 ```
