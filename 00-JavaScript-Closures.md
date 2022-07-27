@@ -2,6 +2,111 @@
 
 [`var`-`let`-`const`](https://youtu.be/_E96W6ivHng)
 
+- all three (`var`,`let`, and `const`) are used to initialize variables in JavaScript
+
+- Scope Types:
+  - function scope: `var`
+  - block scope: 'let', `const`
+  
+- Scope Environments:
+  - global scope
+  - local scope
+
+```javascript
+// untill 2015 - legacy code
+var x = 1 // function scoped
+var x = 2 // doesnt throw error when overwritten
+console.log(x) // 2
+// only use in legacy code
+
+
+// after 2015, `let` and `const` were introduced
+
+// let:
+let y = 1 // block scoped
+let y = 2 // throws error, 
+// since `let` is specfied again the second time, this is treated as erroneous reassignment
+
+let y = 1
+y = 2 // does not throw error, 
+// since no `let` is specified the second time, this is treated as a willing reassignment 
+
+// const: 
+const z = 1 // block scope
+const z = 2 // throws error
+z = 3 // throws error
+// const variables may be defined only once
+```
+
+- always use `const` to ensure the variable name is never to be overwritten
+- use `let` when variable name is expected to be overwritten at some point
+
+## Global Scope
+
+```javascript
+// Global Variables
+var x = 1
+let y = 2;
+const z = 3;
+```
+
+## Local Scope
+
+### Block Scope
+
+```javascript
+{
+  let a = 4
+}
+console.log(a) // reference error, not available outside the {} globally
+
+if () {
+  // block scope
+}
+
+for () {
+  // block scope  
+}
+
+switch () {
+  // block scope      
+}
+```
+
+### Function Scope
+
+```javascript
+function myFunc() {
+  const b = 5
+  console.log(b)
+
+  var d = 10
+}
+console.log(d) // reference error
+
+myFunc() // 5
+```
+
+### Nested Scope
+
+```javascript
+function myFunc() {
+  const b = 5
+  console.log(b)
+
+  {
+    let c = 10
+    console.log(c)
+  }
+
+  console.log(c) // reference error
+}
+
+myFunc() // 5, 10
+```
+
+
+
 # Lexical Scope
 
 - defines how variable names are resolved in nested functions

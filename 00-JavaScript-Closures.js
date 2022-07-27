@@ -1,3 +1,27 @@
+/* BLOCK SCOPE ------------------------------------- */
+{
+  let a = 4
+}
+// console.log(a) // reference error
+/* ------------------------------------------------- */
+
+
+/* FUNCTION SCOPE ---------------------------------- */
+function myFunc() {
+  const b = 5
+  console.log(b)
+
+  {
+    let c = 10
+    console.log(c)
+  }
+
+  // console.log(c) // reference error
+}
+
+myFunc() // 5, 10
+/* ------------------------------------------------- */
+
 /* LEXICAL SCOPE ----------------------------------- */
 
 // global scope
